@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import welcomeFunc from '../src/cli.js';
+import brainGamesHello from '../src/cli.js';
 
-welcomeFunc();
+brainGamesHello();

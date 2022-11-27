@@ -10,7 +10,8 @@
     "node": ">=13"
   },
   "bin": {
-    "brain-games": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js",
+    "brain-even": "bin/brain-even.js"
   },
   "type": "module",
   "repository": {

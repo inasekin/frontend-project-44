@@ -8,3 +8,7 @@
 ```bash
 make install
 ```
+
+## Asciinems
+https://asciinema.org/a/o6unDTU7jfZwEbW4qbQO8Af3g - Игра: "Проверка на чётность"
+
