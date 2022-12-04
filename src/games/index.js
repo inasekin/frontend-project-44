@@ -1,9 +1,8 @@
 import {
   checkEvenOrOdd,
-  expressionExecution,
   findGcd, findHiddenEl,
   helloAndQuestion, isPrime,
-} from '../utils/index.js';
+} from '../functions/index.js';
 import renderQuestion from '../index.js';
 import {
   QUESTION_EVEN_GAME,
@@ -20,7 +19,8 @@ const brainEvenGame = () => {
 };
 
 const brainCalcGame = () => {
-  // eslint-disable-next-line max-len
+  // eslint-disable-next-line no-eval
+  const expressionExecution = (exp) => String(eval(exp));
   const checkUserAnswer = (answer, int) => expressionExecution(int) === answer;
 
   renderQuestion(helloAndQuestion(QUESTION_CALC_GAME), 'calc', checkUserAnswer, expressionExecution);

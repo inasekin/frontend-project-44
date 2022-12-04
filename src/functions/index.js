@@ -9,9 +9,6 @@ const randomInteger = (min, max) => {
 const checkEvenOrOdd = (number) => (
   number % 2 === 0 ? 'yes' : 'no');
 
-// eslint-disable-next-line no-eval
-const expressionExecution = (exp) => String(eval(exp));
-
 const getName = () => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
@@ -117,7 +114,6 @@ export {
   checkEvenOrOdd,
   getName,
   randomOperator,
-  expressionExecution,
   findGcd,
   findHiddenEl,
   createProgression,

@@ -1,4 +1,4 @@
-import { getName } from './utils/index.js';
+import { getName } from './functions/index.js';
 
 const brainGamesHello = () => {
   getName();
