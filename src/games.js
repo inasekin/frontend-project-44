@@ -1,4 +1,9 @@
-import { getName, checkEvenOrOdd, expressionExecution } from './utils.js';
+import {
+  getName,
+  checkEvenOrOdd,
+  expressionExecution,
+  findGcd,
+} from './utils.js';
 import renderQuestion from './index.js';
 
 const brainEvenGame = () => {
@@ -20,4 +25,13 @@ const brainCalcGame = () => {
   renderQuestion(name, 'calc', checkUserAnswer, expressionExecution);
 };
 
-export { brainCalcGame, brainEvenGame };
+const brainGcdGame = () => {
+  const name = getName();
+  console.log('Find the greatest common divisor of given numbers.');
+
+  const checkUserAnswer = (answer, chars) => findGcd(chars) === answer;
+
+  renderQuestion(name, 'gcd', checkUserAnswer, findGcd);
+};
+
+export { brainCalcGame, brainEvenGame, brainGcdGame };

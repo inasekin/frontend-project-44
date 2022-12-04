@@ -25,10 +25,24 @@ const randomOperator = () => {
   return operators[iRandom];
 };
 
+const gcdRec = (int1, int2) => {
+  if (int2) {
+    return gcdRec(int2, int1 % int2);
+  }
+  return Math.abs(int1);
+};
+
+const findGcd = (str) => {
+  const arrayOfStr = str.split(' ');
+
+  return String(gcdRec(arrayOfStr[0], arrayOfStr[1]));
+};
+
 export {
   randomInteger,
   checkEvenOrOdd,
   getName,
   randomOperator,
   expressionExecution,
+  findGcd,
 };

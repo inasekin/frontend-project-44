@@ -14,6 +14,9 @@ const renderQuestion = (username, whatGame, checkAnswer, bringBackCorrectAnswer)
     case 'calc':
       questionExpression = `${randomInteger(1, 10)} ${randomOperator()} ${randomInteger(1, 10)}`;
       break;
+    case 'gcd':
+      questionExpression = `${randomInteger(2, 100)} ${randomInteger(2, 100)}`;
+      break;
     default:
       console.log(`Sorry, we are out of ${whatGame}.`);
   }

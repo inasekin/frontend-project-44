@@ -10,6 +10,10 @@ make install
 ```
 
 ## Asciinems
+
 https://asciinema.org/a/540826 - Игра: "Проверка на чётность"
+
 https://asciinema.org/a/542279 - Игра: "Калькулятор"
+
+https://asciinema.org/a/542499 - Игра "НОД"
 
