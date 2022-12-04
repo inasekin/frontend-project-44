@@ -23,5 +23,6 @@ make install
 Игра "Арифметическая прогрессия"
 [![asciicast](https://asciinema.org/a/gvYvLx05502cCEEU3UYTnI1nk.svg)](https://asciinema.org/a/gvYvLx05502cCEEU3UYTnI1nk)
 
-
+Игра "Простое ли число?"
+[![asciicast](https://asciinema.org/a/EetysSG5Wq2BEXM503Tc2cdp1.svg)](https://asciinema.org/a/EetysSG5Wq2BEXM503Tc2cdp1)
 

@@ -1,8 +1,8 @@
 import readlineSync from 'readline-sync';
-import { randomInteger, randomOperator, createProgression } from './utils.js';
+import { randomInteger, randomOperator, createProgression } from './utils/index.js';
+import { MAX_CORRECT_ATTEMPT } from './constants/index.js';
 
 let userAttempt = 0;
-const MAX_CORRECT_ATTEMPT = 3;
 
 const renderQuestion = (username, whatGame, checkAnswer, bringBackCorrectAnswer) => {
   let questionExpression;
@@ -19,6 +19,9 @@ const renderQuestion = (username, whatGame, checkAnswer, bringBackCorrectAnswer)
       break;
     case 'progression':
       questionExpression = createProgression();
+      break;
+    case 'prime':
+      questionExpression = randomInteger(1, 100);
       break;
     default:
       console.log(`Sorry, we are out of ${whatGame}.`);

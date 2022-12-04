@@ -1,7 +1,5 @@
 import readlineSync from 'readline-sync';
-
-const HIDDEN_NUMBER_SYMBOL = '..';
-const MAX_INDEX = 10;
+import { MAX_INDEX, HIDDEN_NUMBER_SYMBOL } from '../constants/index.js';
 
 const randomInteger = (min, max) => {
   const rand = (min - 0.5) + (Math.random() * ((max - min) + 1));
@@ -18,6 +16,13 @@ const getName = () => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
+
+  return name;
+};
+
+const helloAndQuestion = (question) => {
+  const name = getName();
+  console.log(question);
 
   return name;
 };
@@ -99,6 +104,14 @@ const findHiddenEl = (str) => {
   }
 };
 
+const isPrime = (num) => {
+  const currentNum = Number(num);
+  for (let i = 2, s = Math.sqrt(currentNum); i <= s; i += 1) {
+    if (currentNum % i === 0) return false;
+  }
+  return currentNum > 1;
+};
+
 export {
   randomInteger,
   checkEvenOrOdd,
@@ -108,4 +121,6 @@ export {
   findGcd,
   findHiddenEl,
   createProgression,
+  helloAndQuestion,
+  isPrime,
 };
