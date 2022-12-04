@@ -1,11 +1,15 @@
 import readlineSync from 'readline-sync';
 
+const HIDDEN_NUMBER_SYMBOL = '..';
+const MAX_INDEX = 10;
+
 const randomInteger = (min, max) => {
-  const rand = min - 0.5 + Math.random() * (max - min + 1);
+  const rand = (min - 0.5) + (Math.random() * ((max - min) + 1));
   return Math.round(rand);
 };
 
-const checkEvenOrOdd = (number) => (number % 2 === 0 ? 'yes' : 'no');
+const checkEvenOrOdd = (number) => (
+  number % 2 === 0 ? 'yes' : 'no');
 
 // eslint-disable-next-line no-eval
 const expressionExecution = (exp) => String(eval(exp));
@@ -38,6 +42,63 @@ const findGcd = (str) => {
   return String(gcdRec(arrayOfStr[0], arrayOfStr[1]));
 };
 
+const arithmeticProgression = () => {
+  const result = [];
+  const step = randomInteger(2, 6);
+
+  for (let i = 0; i <= MAX_INDEX; i += 1) {
+    if (i !== 0) {
+      result.push(result[i - 1] + step);
+    } else {
+      result.push(randomInteger(2, 20));
+    }
+  }
+
+  return result;
+};
+
+const createProgression = () => {
+  const newProgression = arithmeticProgression();
+
+  const missChar = randomInteger(0, newProgression.length);
+
+  newProgression[missChar] = HIDDEN_NUMBER_SYMBOL;
+
+  return newProgression.join(' ');
+};
+
+// eslint-disable-next-line consistent-return
+const findHiddenEl = (str) => {
+  const progressionArray = str.split(' ');
+
+  for (let i = 0; i < progressionArray.length; i += 1) {
+    if (progressionArray[i] === HIDDEN_NUMBER_SYMBOL) {
+      let step = 0;
+
+      // если заданное число имеет соседей справа и слева
+      if (progressionArray[i - 1] && progressionArray[i + 1]) {
+        step = progressionArray[i + 1] - progressionArray[i - 1];
+
+        return String(progressionArray[i + 1] - Number(step / 2));
+      }
+
+      // если заданное число не имеет соседа справа
+      if (!progressionArray[i + 1] && progressionArray[i - 1] && progressionArray[i - 2]) {
+        step = progressionArray[i - 1] - progressionArray[i - 2];
+
+        return String(Number(progressionArray[i - 1]) + Number(step));
+      }
+
+      // если заданное число не имеет соседа слева
+      if (progressionArray[i + 1] && !progressionArray[i - 1] && progressionArray[i + 2]) {
+        step = progressionArray[i + 2] - progressionArray[i + 1];
+
+        return String(progressionArray[i + 1] - Number(step));
+      }
+    }
+  }
+};
+
 export {
   randomInteger,
   checkEvenOrOdd,
@@ -45,4 +106,6 @@ export {
   randomOperator,
   expressionExecution,
   findGcd,
+  findHiddenEl,
+  createProgression,
 };

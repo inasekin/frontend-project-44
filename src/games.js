@@ -2,7 +2,7 @@ import {
   getName,
   checkEvenOrOdd,
   expressionExecution,
-  findGcd,
+  findGcd, findHiddenEl,
 } from './utils.js';
 import renderQuestion from './index.js';
 
@@ -34,4 +34,18 @@ const brainGcdGame = () => {
   renderQuestion(name, 'gcd', checkUserAnswer, findGcd);
 };
 
-export { brainCalcGame, brainEvenGame, brainGcdGame };
+const brainProgression = () => {
+  const name = getName();
+  console.log('What number is missing in the progression?');
+
+  const checkUserAnswer = (answer, progression) => findHiddenEl(progression) === answer;
+
+  renderQuestion(name, 'progression', checkUserAnswer, findHiddenEl);
+};
+
+export {
+  brainCalcGame,
+  brainEvenGame,
+  brainGcdGame,
+  brainProgression,
+};
