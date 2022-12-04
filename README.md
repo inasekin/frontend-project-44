@@ -11,9 +11,17 @@ make install
 
 ## Asciinems
 
-https://asciinema.org/a/540826 - Игра: "Проверка на чётность"
+Игра: "Проверка на чётность"
+[![asciicast](https://asciinema.org/a/540826.svg)](https://asciinema.org/a/540826)
 
-https://asciinema.org/a/542279 - Игра: "Калькулятор"
+Игра: "Калькулятор"
+[![asciicast](https://asciinema.org/a/542279.svg)](https://asciinema.org/a/542279)
 
-https://asciinema.org/a/542499 - Игра "НОД"
+Игра "НОД"
+[![asciicast](https://asciinema.org/a/542499.svg)](https://asciinema.org/a/542499)
+
+Игра "Арифметическая прогрессия"
+[![asciicast](https://asciinema.org/a/gvYvLx05502cCEEU3UYTnI1nk.svg)](https://asciinema.org/a/gvYvLx05502cCEEU3UYTnI1nk)
+
+
 
