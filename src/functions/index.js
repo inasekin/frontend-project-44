@@ -6,9 +6,6 @@ const randomInteger = (min, max) => {
   return Math.round(rand);
 };
 
-const checkEvenOrOdd = (number) => (
-  number % 2 === 0 ? 'yes' : 'no');
-
 const getName = () => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
@@ -111,7 +108,6 @@ const isPrime = (num) => {
 
 export {
   randomInteger,
-  checkEvenOrOdd,
   getName,
   randomOperator,
   findGcd,

@@ -1,5 +1,4 @@
 import {
-  checkEvenOrOdd,
   findGcd, findHiddenEl,
   helloAndQuestion, isPrime,
 } from '../functions/index.js';
@@ -13,6 +12,8 @@ import {
 } from '../constants/index.js';
 
 const brainEvenGame = () => {
+  const checkEvenOrOdd = (number) => (
+    number % 2 === 0 ? 'yes' : 'no');
   const checkUserAnswer = (answer, int) => checkEvenOrOdd(int) === answer;
 
   renderQuestion(helloAndQuestion(QUESTION_EVEN_GAME), 'even', checkUserAnswer, checkEvenOrOdd);
@@ -27,15 +28,15 @@ const brainCalcGame = () => {
 };
 
 const brainGcdGame = () => {
-  const checkUserAnswer = (answer, chars) => findGcd(chars) === answer;
+  const checkAnswerGcdGame = (answer, chars) => findGcd(chars) === answer;
 
-  renderQuestion(helloAndQuestion(QUESTION_GCD_GAME), 'gcd', checkUserAnswer, findGcd);
+  renderQuestion(helloAndQuestion(QUESTION_GCD_GAME), 'gcd', checkAnswerGcdGame, findGcd);
 };
 
 const brainProgressionGame = () => {
-  const checkUserAnswer = (answer, progression) => findHiddenEl(progression) === answer;
+  const checkAnswerProgressionGame = (answer, progression) => findHiddenEl(progression) === answer;
 
-  renderQuestion(helloAndQuestion(QUESTION_PROGRESSION_GAME), 'progression', checkUserAnswer, findHiddenEl);
+  renderQuestion(helloAndQuestion(QUESTION_PROGRESSION_GAME), 'progression', checkAnswerProgressionGame, findHiddenEl);
 };
 
 const brainPrimeGame = () => {
