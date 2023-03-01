@@ -1,5 +1,12 @@
 import readlineSync from 'readline-sync';
-import { MAX_INDEX, HIDDEN_NUMBER_SYMBOL } from './const.js';
+import {
+  MAX_INDEX,
+  HIDDEN_NUMBER_SYMBOL,
+  QUESTION_EVEN_GAME,
+  QUESTION_CALC_GAME,
+  QUESTION_GCD_GAME,
+  QUESTION_PROGRESSION_GAME, QUESTION_PRIME_GAME
+} from './const.js';
 
 const getName = () => {
   console.log('Welcome to the Brain Games!');
@@ -14,14 +21,7 @@ const getRandomInteger = (min, max) => {
   return Math.round(rand);
 };
 
-const helloAndQuestion = (question) => {
-  const name = getName();
-  console.log(question);
-
-  return name;
-};
-
-const randomOperator = () => {
+const getRandomOperator = () => {
   const operators = ['+', '-', '*'];
   const iRandom = Math.floor((Math.random() * operators.length));
 
@@ -51,6 +51,32 @@ const createProgression = () => {
   newProgression[missChar] = HIDDEN_NUMBER_SYMBOL;
 
   return newProgression.join(' ');
+};
+
+const getQuestionExpression = (gameQuestion) => {
+  let expression;
+
+  switch (gameQuestion) {
+    case QUESTION_EVEN_GAME:
+      expression = getRandomInteger(1, 100);
+      break;
+    case QUESTION_CALC_GAME:
+      expression = `${getRandomInteger(1, 10)} ${getRandomOperator()} ${getRandomInteger(1, 10)}`;
+      break;
+    case QUESTION_GCD_GAME:
+      expression = `${getRandomInteger(2, 100)} ${getRandomInteger(2, 100)}`;
+      break;
+    case QUESTION_PROGRESSION_GAME:
+      expression = createProgression();
+      break;
+    case QUESTION_PRIME_GAME:
+      expression = getRandomInteger(1, 100);
+      break;
+    default:
+      console.log(`Sorry, we are out of ${gameQuestion}.`);
+  }
+
+  return expression;
 };
 
 // eslint-disable-next-line consistent-return
@@ -96,9 +122,9 @@ const isPrime = (num) => {
 export {
   getRandomInteger,
   getName,
-  randomOperator,
+  getRandomOperator,
   findHiddenEl,
   createProgression,
-  helloAndQuestion,
+  getQuestionExpression,
   isPrime,
 };

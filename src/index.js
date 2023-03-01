@@ -1,37 +1,11 @@
 import readlineSync from 'readline-sync';
-import { getRandomInteger, randomOperator, createProgression } from './utils.js';
-import { MAX_CORRECT_ATTEMPT } from './const.js';
+import { getRandomInteger, getRandomOperator, getQuestionExpression } from './utils.js';
+import {MAX_CORRECT_ATTEMPT, QUESTION_EVEN_GAME} from './const.js';
 
 let userAttempt = 0;
 
-const getQuestionExpression = (gameName) => {
-  let expression;
-
-  switch (gameName) {
-    case 'even':
-      expression = getRandomInteger(1, 100);
-      break;
-    case 'calc':
-      expression = `${getRandomInteger(1, 10)} ${randomOperator()} ${getRandomInteger(1, 10)}`;
-      break;
-    case 'gcd':
-      expression = `${getRandomInteger(2, 100)} ${getRandomInteger(2, 100)}`;
-      break;
-    case 'progression':
-      expression = createProgression();
-      break;
-    case 'prime':
-      expression = getRandomInteger(1, 100);
-      break;
-    default:
-      console.log(`Sorry, we are out of ${gameName}.`);
-  }
-
-  return expression;
-};
-
 const renderQuestion = (username, whatGame, checkAnswer, bringBackCorrectAnswer) => {
-  const questionExpression = getQuestionExpression(whatGame);
+  const questionExpression = getQuestionExpression(QUESTION_EVEN_GAME);
 
   console.log(`Question: ${questionExpression}`);
 
