@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
-import { getQuestionExpression } from '../utils.js';
-import { MAX_CORRECT_ATTEMPT } from '../const.js';
+import { getQuestionExpression } from './utils.js';
+import { MAX_CORRECT_ATTEMPT } from './const.js';
 
 let userAttempt = 0;
 

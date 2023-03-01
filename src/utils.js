@@ -16,6 +16,8 @@ const getName = () => {
   return name;
 };
 
+const checkEven = (number) => number % 2 === 0;
+
 const getRandomInteger = (min, max) => {
   const rand = (min - 0.5) + (Math.random() * ((max - min) + 1));
   return Math.round(rand);
@@ -98,6 +100,19 @@ const getQuestionExpression = (gameQuestion) => {
   return expression;
 };
 
+const gcdRec = (int1, int2) => {
+  if (int2) {
+    return gcdRec(int2, int1 % int2);
+  }
+  return Math.abs(int1);
+};
+
+const findGcd = (str) => {
+  const arrayOfStr = str.split(' ');
+
+  return String(gcdRec(arrayOfStr[0], arrayOfStr[1]));
+};
+
 const isPrime = (num) => {
   const currentNum = Number(num);
   for (let i = 2, s = Math.sqrt(currentNum); i <= s; i += 1) {
@@ -106,11 +121,15 @@ const isPrime = (num) => {
   return currentNum > 1;
 };
 
+const checkIsPrime = (figure) => isPrime(figure);
+
 export {
   getRandomInteger,
   getName,
+  checkEven,
   getRandomOperator,
   createProgression,
   getQuestionExpression,
-  isPrime,
+  findGcd,
+  checkIsPrime,
 };
