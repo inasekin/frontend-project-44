@@ -58,13 +58,18 @@ const arithmeticProgression = () => {
 };
 
 const createProgression = () => {
+  const result = {};
   const newProgression = arithmeticProgression();
 
   const missChar = getRandomInteger(0, newProgression.length);
 
+  result.expression = newProgression[missChar];
+
   newProgression[missChar] = HIDDEN_NUMBER_SYMBOL;
 
-  return newProgression.join(' ');
+  result.question = newProgression.join(' ');
+
+  return result;
 };
 
 const getQuestionExpression = (gameQuestion) => {
@@ -93,38 +98,6 @@ const getQuestionExpression = (gameQuestion) => {
   return expression;
 };
 
-// eslint-disable-next-line consistent-return
-const findHiddenEl = (str) => {
-  const progressionArray = str.split(' ');
-
-  for (let i = 0; i < progressionArray.length; i += 1) {
-    if (progressionArray[i] === HIDDEN_NUMBER_SYMBOL) {
-      let step = 0;
-
-      // если заданное число имеет соседей справа и слева
-      if (progressionArray[i - 1] && progressionArray[i + 1]) {
-        step = progressionArray[i + 1] - progressionArray[i - 1];
-
-        return String(progressionArray[i + 1] - Number(step / 2));
-      }
-
-      // если заданное число не имеет соседа справа
-      if (!progressionArray[i + 1] && progressionArray[i - 1] && progressionArray[i - 2]) {
-        step = progressionArray[i - 1] - progressionArray[i - 2];
-
-        return String(Number(progressionArray[i - 1]) + Number(step));
-      }
-
-      // если заданное число не имеет соседа слева
-      if (progressionArray[i + 1] && !progressionArray[i - 1] && progressionArray[i + 2]) {
-        step = progressionArray[i + 2] - progressionArray[i + 1];
-
-        return String(progressionArray[i + 1] - Number(step));
-      }
-    }
-  }
-};
-
 const isPrime = (num) => {
   const currentNum = Number(num);
   for (let i = 2, s = Math.sqrt(currentNum); i <= s; i += 1) {
@@ -137,7 +110,6 @@ export {
   getRandomInteger,
   getName,
   getRandomOperator,
-  findHiddenEl,
   createProgression,
   getQuestionExpression,
   isPrime,

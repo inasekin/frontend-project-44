@@ -1,14 +1,8 @@
 import {
-  findHiddenEl, getName,
+  getName,
   isPrime,
 } from '../utils.js';
 import renderQuestion from '../index.js';
-
-const brainProgressionGame = () => {
-  const checkAnswerProgressionGame = (answer, progression) => findHiddenEl(progression) === answer;
-
-  renderQuestion(getName, 'progression', checkAnswerProgressionGame, findHiddenEl);
-};
 
 const brainPrimeGame = () => {
   const checkIsPrime = (figure) => (isPrime(figure) ? 'yes' : 'no');
@@ -17,7 +11,4 @@ const brainPrimeGame = () => {
   renderQuestion(getName, 'prime', checkUserAnswer, checkIsPrime);
 };
 
-export {
-  brainProgressionGame,
-  brainPrimeGame,
-};
+export default brainPrimeGame;
