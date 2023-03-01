@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
-import { randomInteger, randomOperator, createProgression } from './functions/index.js';
-import { MAX_CORRECT_ATTEMPT } from './constants/index.js';
+import { getRandomInteger, randomOperator, createProgression } from './utils.js';
+import { MAX_CORRECT_ATTEMPT } from './const.js';
 
 let userAttempt = 0;
 
@@ -9,19 +9,19 @@ const getQuestionExpression = (gameName) => {
 
   switch (gameName) {
     case 'even':
-      expression = randomInteger(1, 100);
+      expression = getRandomInteger(1, 100);
       break;
     case 'calc':
-      expression = `${randomInteger(1, 10)} ${randomOperator()} ${randomInteger(1, 10)}`;
+      expression = `${getRandomInteger(1, 10)} ${randomOperator()} ${getRandomInteger(1, 10)}`;
       break;
     case 'gcd':
-      expression = `${randomInteger(2, 100)} ${randomInteger(2, 100)}`;
+      expression = `${getRandomInteger(2, 100)} ${getRandomInteger(2, 100)}`;
       break;
     case 'progression':
       expression = createProgression();
       break;
     case 'prime':
-      expression = randomInteger(1, 100);
+      expression = getRandomInteger(1, 100);
       break;
     default:
       console.log(`Sorry, we are out of ${gameName}.`);

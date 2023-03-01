@@ -1,10 +1,5 @@
 import readlineSync from 'readline-sync';
-import { MAX_INDEX, HIDDEN_NUMBER_SYMBOL } from '../constants/index.js';
-
-const randomInteger = (min, max) => {
-  const rand = (min - 0.5) + (Math.random() * ((max - min) + 1));
-  return Math.round(rand);
-};
+import { MAX_INDEX, HIDDEN_NUMBER_SYMBOL } from './const.js';
 
 const getName = () => {
   console.log('Welcome to the Brain Games!');
@@ -12,6 +7,11 @@ const getName = () => {
   console.log(`Hello, ${name}!`);
 
   return name;
+};
+
+const getRandomInteger = (min, max) => {
+  const rand = (min - 0.5) + (Math.random() * ((max - min) + 1));
+  return Math.round(rand);
 };
 
 const helloAndQuestion = (question) => {
@@ -30,13 +30,13 @@ const randomOperator = () => {
 
 const arithmeticProgression = () => {
   const result = [];
-  const step = randomInteger(2, 6);
+  const step = getRandomInteger(2, 6);
 
   for (let i = 0; i <= MAX_INDEX; i += 1) {
     if (i !== 0) {
       result.push(result[i - 1] + step);
     } else {
-      result.push(randomInteger(2, 20));
+      result.push(getRandomInteger(2, 20));
     }
   }
 
@@ -46,7 +46,7 @@ const arithmeticProgression = () => {
 const createProgression = () => {
   const newProgression = arithmeticProgression();
 
-  const missChar = randomInteger(0, newProgression.length);
+  const missChar = getRandomInteger(0, newProgression.length);
 
   newProgression[missChar] = HIDDEN_NUMBER_SYMBOL;
 
@@ -94,7 +94,7 @@ const isPrime = (num) => {
 };
 
 export {
-  randomInteger,
+  getRandomInteger,
   getName,
   randomOperator,
   findHiddenEl,

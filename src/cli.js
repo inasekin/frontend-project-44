@@ -1,7 +1,3 @@
-import { getName } from './functions/index.js';
+import { getName } from './utils.js';
 
-const brainGamesHello = () => {
-  getName();
-};
-
-export default brainGamesHello;
+getName();

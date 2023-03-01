@@ -2,7 +2,7 @@ import {
   findHiddenEl,
   helloAndQuestion,
   isPrime,
-} from '../functions/index.js';
+} from '../utils.js';
 import renderQuestion from '../index.js';
 import {
   QUESTION_EVEN_GAME,
@@ -10,7 +10,7 @@ import {
   QUESTION_GCD_GAME,
   QUESTION_PRIME_GAME,
   QUESTION_PROGRESSION_GAME,
-} from '../constants/index.js';
+} from '../const.js';
 
 const brainEvenGame = () => {
   const checkEvenOrOdd = (number) => (
