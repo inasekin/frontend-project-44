@@ -63,7 +63,7 @@ const createProgression = () => {
   const result = {};
   const newProgression = arithmeticProgression();
 
-  const missChar = getRandomInteger(0, newProgression.length);
+  const missChar = getRandomInteger(0, newProgression.length - 1);
 
   result.expression = newProgression[missChar];
 
