@@ -7,7 +7,7 @@ let userAttempt = 0;
 const gameEngine = (checkRules, question, name) => {
   const questionExpression = getQuestionExpression(question);
   console.log(question);
-  console.log(`Question: ${questionExpression}`);
+  console.log(`Question: ${typeof questionExpression === 'object' ? questionExpression.question : questionExpression}`);
   const answer = readlineSync.question('Your answer: ');
 
   if (checkRules(questionExpression) !== answer) {

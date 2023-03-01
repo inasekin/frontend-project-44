@@ -5,7 +5,7 @@ import {
   QUESTION_EVEN_GAME,
   QUESTION_CALC_GAME,
   QUESTION_GCD_GAME,
-  QUESTION_PROGRESSION_GAME, QUESTION_PRIME_GAME
+  QUESTION_PROGRESSION_GAME, QUESTION_PRIME_GAME,
 } from './const.js';
 
 const getName = () => {
@@ -21,11 +21,25 @@ const getRandomInteger = (min, max) => {
   return Math.round(rand);
 };
 
-const getRandomOperator = () => {
-  const operators = ['+', '-', '*'];
-  const iRandom = Math.floor((Math.random() * operators.length));
+const getRandomOperator = (n1, n2) => {
+  let result;
+  const n = Math.floor(Math.random() * 3);
 
-  return operators[iRandom];
+  switch (n) {
+    case 0:
+      result = { question: `${n1} + ${n2}`, expression: n1 + n2 };
+      break;
+    case 1:
+      result = { question: `${n1} - ${n2}`, expression: n1 - n2 };
+      break;
+    case 2:
+      result = { question: `${n1} * ${n2}`, expression: n1 * n2 };
+      break;
+    default:
+      console.log('Sorry, we have some error.');
+  }
+
+  return result;
 };
 
 const arithmeticProgression = () => {
@@ -61,7 +75,7 @@ const getQuestionExpression = (gameQuestion) => {
       expression = getRandomInteger(1, 100);
       break;
     case QUESTION_CALC_GAME:
-      expression = `${getRandomInteger(1, 10)} ${getRandomOperator()} ${getRandomInteger(1, 10)}`;
+      expression = getRandomOperator(getRandomInteger(1, 10), getRandomInteger(1, 10));
       break;
     case QUESTION_GCD_GAME:
       expression = `${getRandomInteger(2, 100)} ${getRandomInteger(2, 100)}`;
