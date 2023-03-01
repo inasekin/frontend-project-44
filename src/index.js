@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { getRandomInteger, getRandomOperator, getQuestionExpression } from './utils.js';
+import { getQuestionExpression } from './utils.js';
 import {MAX_CORRECT_ATTEMPT, QUESTION_EVEN_GAME} from './const.js';
 
 let userAttempt = 0;
